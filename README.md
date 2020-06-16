@@ -21,3 +21,11 @@ WEBCRACK_AIRTEST
 * enable_dic: 是否启用字典爆破 (True 或 False)
 * user_file: 用户字典文件 (默认users.txt)
 * pass_file: 密码字典文件 (默认pass.txt) 
+
+
+原理
+-------------
+
+通过Airtest IDE作为辅助,结合Chrome浏览器进行可视化爆破,避免一些常见的cookie/header反破解机制
+使用正则自动识别网页用户名/密码输入框,引用基础SQL注入语句以及常见弱口令组合循环遍历,尝试登录
+登录成功的判断准则为: 页面不再出现用户名/密码输入框即认为爆破成功
