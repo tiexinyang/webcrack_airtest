@@ -8,6 +8,7 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from airtest_selenium.proxy import WebChrome
 import re
+import configparser
 
 auto_setup(__file__)
 
@@ -123,9 +124,10 @@ class cracker():
                 input()
 
 
-
-#定义攻击目标登录地址
-target_url = 'https://somewhere/login.html'
-#开始爆破(可自定义字典，或者使用默认字典)
-cracker(target_url).run()
-#cracker(target_url).run('users.txt','pass.txt')
+config = configparser.ConfigParser()
+config.read('config.ini', encoding='utf-8')
+target = dict(config.items('target'))
+if target["enable_dic"].upper() == 'TRUE':
+    cracker(target["login_url"]).run(target["user_file"],target["pass_file"])
+else:
+    cracker(target["login_url"]).run()
