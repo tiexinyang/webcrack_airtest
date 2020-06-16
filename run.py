@@ -123,11 +123,13 @@ class cracker():
                 print("爆破成功")
                 input()
 
-
 config = configparser.ConfigParser()
 config.read('config.ini', encoding='utf-8')
 target = dict(config.items('target'))
+target_url = target["login_url"].strip("'")
+user_file = target["user_file"]
+pass_file = target["pass_file"]
 if target["enable_dic"].upper() == 'TRUE':
-    cracker(target["login_url"]).run(target["user_file"],target["pass_file"])
+    cracker(target_url).run(user_file,pass_file)
 else:
-    cracker(target["login_url"]).run()
+    cracker(target_url).run()
