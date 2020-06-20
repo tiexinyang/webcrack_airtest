@@ -102,7 +102,7 @@ class cracker():
         if userfile and passfile:
             users = open(userfile).read().strip('\n').split('\n')
             passwords = open(passfile).read().strip('\n').split('\n')
-            if loop(users,passwords):
+            if self.loop(users,passwords):
                 print("爆破成功")
                 input()
         else:
