@@ -1,4 +1,37 @@
-WEBCRACK_AIRTEST
+WEBCRACK_AIRTEST(EN)
+======
+
+As it's integrated with Chromedriver, by providing the TARGET URL, you will be able to perform the visible one-click brute force attack very easily.
+* python only
+* Tested using AirtestIDE v1.2.3 on Win10
+
+Dependency 
+-------------
+
+	1、AirtestIDE (Official Download: http://airtest.netease.com/)
+	2、Windows
+
+    
+Usage
+-------------
+
+Open your Airtest IDE and import this project
+Edit the file config.ini, and configure:
+* login_url: Your target website's url which contains the login form
+* enable_dic: Enable the weak user/pass dictionary or not (True or False)
+* user_file: Weak user name dictionary file ("users.txt" by the default)
+* pass_file: Weak password dictionary file ("pass.txt" by the default) 
+
+
+How it works
+-------------
+
+- Airtest IDE is a very powerful tool which can be integrated with Chrome to perform the visible brute force, which means you don't need to handle the complex cookies/headers.
+- User/Password inputbox can be automatically detected by the regular expression, some basic SQL injection tests and common weak user/password pairs will also be involved to perform login as a loop
+- Program will be stopped when it finds no login inputbox in the webpage, as it will be thought to be an omen of success(Sometimes it's probably not, e.g. 403 error page)
+
+
+WEBCRACK_AIRTEST(CN)
 ======
 
 结合Chrome浏览器，一键式爆破网站登录页面，只需提供网站登录目标地址即可
